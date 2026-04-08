@@ -353,24 +353,32 @@ class HumanitarianAidEnv:
         """
         Terminal grader — call after episode ends.
         G = 0.6·survival_rate + 0.3·efficiency + 0.1·time_bonus
+        Score is strictly in (0, 1) — never 0.0 or 1.0.
         """
         n = len(self._zones)
         covered_count = sum(1 for z in self._zones if z.covered)
+    
+        # Clamp survival_rate to (0.05, 0.95) so score can never reach exact 0 or 1
         survival_rate = covered_count / n
-
+        survival_rate = max(0.05, min(0.95, survival_rate))
+    
         efficiency = (
             1.0 - (self._total_waste / self._total_sent)
-            if self._total_sent > 0 else 1.0
+            if self._total_sent > 0 else 0.95
         )
-        efficiency = max(0.0, min(1.0, efficiency))
-
-        # time_bonus: 1.0 if finished before deadline, 0.5 otherwise
+        # Clamp efficiency to (0.05, 0.95)
+        efficiency = max(0.05, min(0.95, efficiency))
+    
+        # time_bonus: use 0.9 instead of 1.0, 0.5 stays as-is (both safely < 1)
         all_covered = all(z.covered for z in self._zones)
-        time_bonus = 1.0 if (all_covered and self._global.current_step < self._global.total_steps) else 0.5
-
+        time_bonus = 0.9 if (all_covered and self._global.current_step < self._global.total_steps) else 0.5
+    
         score = 0.6 * survival_rate + 0.3 * efficiency + 0.1 * time_bonus
-        score = round(min(1.0, max(0.0, score)), 4)
-
+    
+        # Final strict clamp: ensure score is never exactly 0.0 or 1.0
+        score = max(0.001, min(0.999, score))
+        score = round(score, 4)
+    
         return GraderResult(
             score=score,
             survival_rate=round(survival_rate, 4),
@@ -385,7 +393,6 @@ class HumanitarianAidEnv:
                 "supply_shock": self._global.supply_shock_applied,
             },
         )
-
     # ------------------------------------------------------------------
     # Helpers
     # ------------------------------------------------------------------
