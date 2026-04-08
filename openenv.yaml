@@ -1,0 +1,37 @@
+name: humanitarian-aid-allocation
+version: "1.0.0"
+description: >
+  A humanitarian aid supply allocation environment where an agent distributes
+  limited relief supplies across disaster-affected zones with varying severity,
+  population, and road access. Designed to train and evaluate agents on
+  real-world resource allocation under scarcity and equity constraints.
+author: OpenEnv Submission
+tags:
+  - openenv
+  - humanitarian
+  - resource-allocation
+  - logistics
+  - real-world
+tasks:
+  - id: easy
+    name: Small Zone Coverage
+    description: Allocate supplies across 3 zones over 12 steps. No road blockages.
+    horizon: 12
+    difficulty: easy
+  - id: medium
+    name: Multi-Zone with Blockages
+    description: Allocate across 5 zones over 16 steps with road blockages requiring airdrops.
+    horizon: 16
+    difficulty: medium
+  - id: hard
+    name: Supply Shock Crisis
+    description: 7 zones, 20 steps, road blockages, and a supply shock at t=8.
+    horizon: 20
+    difficulty: hard
+observation_space:
+  type: object
+  description: Zone states (population, severity, deficit, coverage) plus global state (supply, step, blockages, events)
+action_space:
+  type: object
+  description: zone_id (int), quantity (int <= remaining supply), priority (low/med/high)
+reward_range: [-5.0, 5.0]

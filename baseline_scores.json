@@ -1,0 +1,54 @@
+{
+  "results": [
+    {
+      "task": "easy",
+      "score": 1.0,
+      "survival_rate": 1.0,
+      "efficiency": 1.0,
+      "time_bonus": 1.0,
+      "total_reward": 7.4257,
+      "details": {
+        "covered_zones": 3,
+        "total_zones": 3,
+        "total_sent": 54,
+        "total_waste": 0,
+        "steps_taken": 11,
+        "supply_shock": false
+      }
+    },
+    {
+      "task": "medium",
+      "score": 0.35,
+      "survival_rate": 0.0,
+      "efficiency": 1.0,
+      "time_bonus": 0.5,
+      "total_reward": 7.2201,
+      "details": {
+        "covered_zones": 0,
+        "total_zones": 5,
+        "total_sent": 101,
+        "total_waste": 0,
+        "steps_taken": 16,
+        "supply_shock": false
+      }
+    },
+    {
+      "task": "hard",
+      "score": 0.35,
+      "survival_rate": 0.0,
+      "efficiency": 1.0,
+      "time_bonus": 0.5,
+      "total_reward": 10.0247,
+      "details": {
+        "covered_zones": 0,
+        "total_zones": 7,
+        "total_sent": 159,
+        "total_waste": 0,
+        "steps_taken": 20,
+        "supply_shock": true
+      }
+    }
+  ],
+  "average": 0.5666666666666667,
+  "elapsed_sec": 75.0284788608551
+}

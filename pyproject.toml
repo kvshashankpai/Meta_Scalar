@@ -1,0 +1,12 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "humanitarian-agent"
+version = "1.0.0"
+description = "Humanitarian Aid Allocation OpenEnv Environment"
+requires-python = ">=3.11"
+
+[project.scripts]
+server = "server.app:main"
