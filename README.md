@@ -4,7 +4,6 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)](https://www.docker.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![HuggingFace Spaces](https://img.shields.io/badge/HuggingFace-Spaces-orange?logo=huggingface)](https://huggingface.co/docs/hub/spaces)
 
 ---
@@ -250,6 +249,3 @@ Meta_Scalar/
 
 ---
 
-## License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
