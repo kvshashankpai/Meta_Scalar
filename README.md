@@ -10,7 +10,7 @@
 
 ## Overview
 
-**Meta\_Scalar** is a competition submission implementing a fully self-contained OpenEnv-compatible environment for humanitarian aid allocation. An LLM agent (default: `Qwen2.5-72B-Instruct`) acts as a logistics planner, deciding each turn how to distribute limited relief supplies across disaster-affected zones — balancing severity, population need, road conditions, and resource efficiency.
+This is a competition submission implementing a fully self-contained OpenEnv-compatible environment for humanitarian aid allocation. An LLM agent (default: `Qwen2.5-72B-Instruct`) acts as a logistics planner, deciding each turn how to distribute limited relief supplies across disaster-affected zones — balancing severity, population need, road conditions, and resource efficiency.
 
 The environment is modelled as a **Markov Decision Process (MDP)** with stochastic demand, road blockages, supply shocks, and a multi-objective reward function that penalises both under-delivery and waste.
 
